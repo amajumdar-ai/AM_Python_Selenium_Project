@@ -1,0 +1,25 @@
+1. To run all the tests in terminal - py.test -v -s
+where -v stands for verbose(more information) -s(output log/message)
+
+2. To run tests with specific names(group wise/module wise)- py.test -k (nameofthetestcase)-v -s
+example-py.test -k greetings -s
+
+3. To run a specific test file- py.test test_1.py -s -->make sure you are under the directory
+
+4. if you only want to execute/skip a particular test case from a file use @pytest.mark.smoke-- only execute the test where you mentioned it
+example- @pytest.mark.smoke
+def test_testcase1():
+    print("testcase1")
+to skip- @pytest.mark.skip
+def test_testcase1():
+    print("testcase1")
+
+5. xFail- where the test is expected to fail
+if the test fails it will print xFAIL
+AND if the test somehow passed then it will return xPass
+
+6. Fixture- can be used in many forms
+
+1. to use as setup and teardown methods after each tests run or it can be applied as a class level as well
+2. if the fixture is only needed in a specific test case then it can be created in the same test file otherwise we can create a separate file called
+"conftest" to declare the fixture and use it in every test files

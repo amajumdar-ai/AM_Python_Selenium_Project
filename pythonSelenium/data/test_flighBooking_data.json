@@ -1,0 +1,12 @@
+{
+  "flight_data": [
+    {
+      "departure_city": "BLR",
+       "arrival_city" :  "Ahmedabad (AMD)"
+    },
+    {
+      "departure_city": "Ahmedabad (AMD)",
+       "arrival_city" :  "Kolkata (CCU)"
+    }
+  ]
+}
