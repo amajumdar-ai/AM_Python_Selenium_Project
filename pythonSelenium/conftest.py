@@ -1,3 +1,4 @@
+import allure
 import pytest
 import pytest_html
 from selenium import webdriver
@@ -34,13 +35,20 @@ def pytest_runtest_makereport(item):
     outcome = yield
     report = outcome.get_result()
 
-    extra = getattr(report, "extra", [])
-
-    if report.when == "call" and report.failed:
+    if report.when == "call":
         driver = item.funcargs['browserInstance']
-        screenshot = driver.get_screenshot_as_base64()
 
-        extra.append(pytest_html.extras.image(screenshot, "Screenshot"))
+        if report.passed:
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="passed_test_screenshot",
+                attachment_type=allure.attachment_type.PNG
+            )
 
-    report.extra = extra
+        elif report.failed:
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="failed_test_screenshot",
+                attachment_type=allure.attachment_type.PNG
+            )
 

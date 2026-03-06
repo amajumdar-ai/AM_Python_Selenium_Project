@@ -23,3 +23,5 @@ AND if the test somehow passed then it will return xPass
 1. to use as setup and teardown methods after each tests run or it can be applied as a class level as well
 2. if the fixture is only needed in a specific test case then it can be created in the same test file otherwise we can create a separate file called
 "conftest" to declare the fixture and use it in every test files
+
+to open allure report- allure open allure-report
